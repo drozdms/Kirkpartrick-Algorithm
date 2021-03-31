@@ -1,4 +1,1 @@
-[submodule "cg"]
-	path = cg
-	url = https://github.com/mcquay239/cg.git
-	branch = qbs
+
