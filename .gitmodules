@@ -1,3 +1,4 @@
-[submodule "visualization"]
-	path = visualization
-	url = https://github.com/drozdms/Kirkpartrick-Algorithm/visualization
+[submodule "cg"]
+	path = cg
+	url = https://github.com/mcquay239/cg.git
+	branch = qbs
