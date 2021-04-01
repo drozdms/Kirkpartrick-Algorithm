@@ -1,7 +1,6 @@
 #pragma once
 
 #include <boost/optional.hpp>
-#include "visualization/viewer_adapter.h"
 
 #include "kirkpatrick.h"
 

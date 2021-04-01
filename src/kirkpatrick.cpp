@@ -1,12 +1,11 @@
 #pragma comment( lib, "OpenGL32.lib" )
 #include <algorithm> // for std::max in "geom/primitives/vector.h"
 #include "geom/primitives/vector.h"
-#include "visualization/viewer_adapter.h"
 
 using geom::structures::vector_type;
 
 #include "kirkpatrick.h"
-#include "triangle.h"
+
 
 const size_t MAX_DEGREE = 8;
 
@@ -206,12 +205,22 @@ point_arr find_outer_triangle(point_arr const& points) {
    res.push_back(lower_left);
    res.push_back(point_type(c - lower_left.y, lower_left.y));
    res.push_back(point_type(lower_left.x, c - lower_left.x));
+
+   // let c = x3 + y3 -> max
+   // let's prove this triangle surrounds the polygon
+   // enough to prove that (x3,y3) that delivers the largest sum c is to the right of the  hypotenuse
+   // determinant |x1   c-x1  1|
+   //             |c-y1  y1   1| = 0 if c = x3 + y3
+   //             |x3    y3   1|
+   // that means that (x3, y3) lies on the segment
+   // if c is bigger -- the point lies to the right of the segment
+
    return res;
 }
 
 kirkpatrick_type::kirkpatrick_type(point_arr const& points):
    _outer_points(find_outer_triangle(points)),
-   _graph(_outer_points) {
+   _graph(_outer_points), tr_drawer() {
    logger << "Starting kirkpatrick" << std::endl;
    _graph.add_poly(points);
    logger << "Bootstrapped graph: " << std::endl << _graph << std::endl;
@@ -237,8 +246,11 @@ bool kirkpatrick_type::query(point_type const& pt) const {
 }
 
 void kirkpatrick_type::draw(visualization::drawer_type& drawer) const {
-   drawer.set_color(Qt::black);
+   drawer.set_color(Qt::blue);
    for(auto segm: _triangulation) {
       drawer.draw_line(segm[0], segm[1], 1);
    }
+   tr_drawer.draw_inside_triangles(drawer, _top_triangle);
 }
+
+

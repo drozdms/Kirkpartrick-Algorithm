@@ -1,5 +1,5 @@
 
 [submodule "Geometry-Visualization-Library"]
 	path = Geometry-Visualization-Library
-	url = git@github.com:AndreyG/Geometry-Visualization-Library.git
-	branch = master
+	url = git@github.com:drozdms/Geometry-Visualization-Library.git
+	branch = dev-mark

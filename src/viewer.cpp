@@ -17,7 +17,7 @@ int kirkpatrick_viewer::time_for_warning = 0;
 kirkpatrick_viewer::kirkpatrick_viewer():
    _state(viewer_state::POLY_INPUT),
    _poly_complete(false),
-   _query_hit(false) {  }
+   _query_hit(false) { }
 
 void kirkpatrick_viewer::draw(drawer_type& drawer) const {
    size_t pt_size = 4;

@@ -35,3 +35,22 @@ bool triangle_type::query(point_type const& pt) const {
    }
    return false;
 }
+
+void triangle_drawer::draw_inside_triangles(visualization::drawer_type &drawer, triangle_ptr father) const  {
+
+       if (father == nullptr)
+           return;
+       drawer.set_color(Qt::yellow);
+       double width = 6;
+
+       if (father->_is_inside)   {
+
+            drawer.draw_line(father->p1(), father->p2(), width);
+            drawer.draw_line(father->p2(), father->p3(), width);
+            drawer.draw_line(father->p3(), father->p1(), width);
+
+       }
+        for (auto t : father->_children) {
+            draw_inside_triangles(drawer, t);
+        }
+}

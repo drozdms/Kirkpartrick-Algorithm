@@ -13,7 +13,7 @@
 using geom::structures::point_type;
 using geom::structures::segment_type;
 
-#ifdef DEBUG
+#ifdef QT_DEBUG
 #define logger std::cerr
 #else
 struct null_stream: std::ostream {

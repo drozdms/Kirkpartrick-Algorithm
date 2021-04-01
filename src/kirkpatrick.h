@@ -2,6 +2,7 @@
 #pragma comment( lib, "OpenGL32.lib" )
 #include "graph.h"
 #include "util.h"
+#include "triangle.h"
 #include <memory>
 #include <vector>
 
@@ -17,9 +18,11 @@ struct kirkpatrick_type {
    kirkpatrick_type(point_arr const&);
    bool query(point_type const&) const;
    void draw(drawer_type& drawer) const;
+   void draw_triangles(drawer_type& drawer) const;
 private:
    point_arr _outer_points;
    graph_type _graph;
+   triangle_drawer tr_drawer;
    std::shared_ptr<triangle_type> _top_triangle;
    std::vector<segment_type> _triangulation;
 };

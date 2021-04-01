@@ -3,9 +3,16 @@
 #include "util.h"
 #include <memory>
 #include <vector>
+#include <visualization/viewer_adapter.h>
 
 struct triangle_type;
 typedef std::shared_ptr<triangle_type> triangle_ptr;
+
+class triangle_drawer   {
+public:
+    triangle_drawer() {}
+    void draw_inside_triangles(visualization::drawer_type& drawer, triangle_ptr father) const;
+};
 
 struct triangle_type {
    triangle_type(point_type const& p1, point_type const& p2, point_type const& p3,
@@ -18,6 +25,9 @@ struct triangle_type {
    point_type const& p1() const { return _p1; }
    point_type const& p2() const { return _p2; }
    point_type const& p3() const { return _p3; }
+
+   friend void triangle_drawer::draw_inside_triangles(visualization::drawer_type& drawer,
+                                               triangle_ptr father) const;
    friend std::ostream& operator<<(std::ostream&, triangle_type const&);
 private:
    point_type _p1;
