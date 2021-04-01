@@ -2,5 +2,13 @@
 
 debug
 release
+debug/*
+release/*
 
+Makefile
+Makefile.*
+.qmake.*
 
+# Extensions
+
+*.o

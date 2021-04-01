@@ -2,7 +2,7 @@ TEMPLATE = app
 TARGET = kirkpatrick
 
 CONFIG += QtGui
-QT += opengl
+QT += gui opengl
 QT += widgets
 
 OBJECTS_DIR = bin
@@ -17,8 +17,10 @@ macx {
 DEPENDPATH += src \
 
 INCLUDEPATH += src \
-               visualization/headers \
-               "C:\Program Files\boost\boost_1_71_0" \
+               Geometry-Visualization-Library/headers \
+               Geometry-Visualization-Library/src/visualization \
+               Geometry-Visualization-Library/src \
+               "C:\Program Files\boost\boost_1_75_0" \
 
 QMAKE_LFLAGS_RELEASE+=/MAP
 QMAKE_CFLAGS_RELEASE += /Zi
@@ -31,15 +33,21 @@ HEADERS += src/graph.h \
            src/viewer.h \
 
 SOURCES += src/graph.cpp \
-           src/kirkpatrick.cpp \
            src/main.cpp \
+           src/kirkpatrick.cpp \
            src/triangle.cpp \
            src/viewer.cpp \
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/Geometry-Visualization-Library/release/ -lvisualization
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/Geometry-Visualization-Library/debug/ -lvisualization
 
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/visualization/release/ -lgeom-visualization
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/visualization/debug/ -lgeom-visualization
+DISTFILES += \
+    Geometry-Visualization-Library/.gitignore \
+    Geometry-Visualization-Library/README \
 
-INCLUDEPATH += $$PWD/visualization/debug
-DEPENDPATH += $$PWD/visualization/debug
+SUBDIRS += \
+    Geometry-Visualization-Library/geom-visualization.pro
+
+
+unix|win32: LIBS += -lOpenGL32

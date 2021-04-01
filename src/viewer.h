@@ -1,13 +1,14 @@
 #pragma once
 
 #include <boost/optional.hpp>
-#include "visualization/src/visualization/viewer_adapter.h"
+#include "visualization/viewer_adapter.h"
 
 #include "kirkpatrick.h"
 
+using visualization::viewer_adapter;
 using geom::structures::point_type;
 
-struct kirkpatrick_viewer : visualization::viewer_adapter {
+struct kirkpatrick_viewer : viewer_adapter {
    kirkpatrick_viewer();
    void draw(visualization::drawer_type&) const;
    void print(visualization::printer_type&) const;

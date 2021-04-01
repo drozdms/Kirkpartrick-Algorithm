@@ -6,7 +6,7 @@
 #include <QFileDialog>
 #include <QIcon>
 #include "io/point.h"
-#include "visualization/headers/visualization/draw_util.h"
+#include "visualization/draw_util.h"
 
 #include "viewer.h"
 
@@ -107,6 +107,7 @@ bool kirkpatrick_viewer::on_move(point_type const &pos)
     _move_point = pos;
     return true;
 }
+
 
 bool kirkpatrick_viewer::on_release(const point_type &pt)
 {

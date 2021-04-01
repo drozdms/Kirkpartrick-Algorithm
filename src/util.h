@@ -9,6 +9,7 @@
 #include "io/segment.h"
 #include <vector>
 
+
 using geom::structures::point_type;
 using geom::structures::segment_type;
 

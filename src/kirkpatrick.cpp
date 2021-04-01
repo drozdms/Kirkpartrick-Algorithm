@@ -1,7 +1,7 @@
 #pragma comment( lib, "OpenGL32.lib" )
 #include <algorithm> // for std::max in "geom/primitives/vector.h"
 #include "geom/primitives/vector.h"
-#include "visualization/src/visualization/viewer_adapter.h"
+#include "visualization/viewer_adapter.h"
 
 using geom::structures::vector_type;
 

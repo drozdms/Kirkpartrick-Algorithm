@@ -1,0 +1,13 @@
+bin/graph.o
+bin/primitives.o
+bin/draw_util.o
+bin/drawer_impl.o
+bin/main_window.o
+bin/printer_impl.o
+bin/visualization.o
+bin/main_window.o
+bin/viewer_widget.o
+bin/kirkpatrick.o
+bin/main.o
+bin/triangle.o
+bin/viewer.o
