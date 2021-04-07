@@ -22,10 +22,6 @@ INCLUDEPATH += src \
                Geometry-Visualization-Library/src \
                "C:\Program Files\boost\boost_1_75_0" \
 
-QMAKE_CFLAGS_RELEASE += /Zi
-
-QMAKE_CXXFLAGS_RELEASE += -O3 /Zi
-
 HEADERS += src/graph.h \
            src/kirkpatrick.h \
            src/triangle.h \

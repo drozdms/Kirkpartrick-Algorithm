@@ -182,8 +182,7 @@ bool refine(graph_type& graph, triangle_map& triangles) {
    return true;
 }
 
-std::shared_ptr<triangle_type> refinement(graph_type& graph, triangle_map& triangles,
-      point_arr const& special_points) {
+std::shared_ptr<triangle_type> refinement(graph_type& graph, triangle_map& triangles) {
    for(;;) {
       if(!refine(graph, triangles))
           break;
@@ -236,7 +235,7 @@ kirkpatrick_type::kirkpatrick_type(point_arr const& points):
    logger << "Triangulated graph: " << std::endl << _graph << std::endl;
    _triangulation = _graph.edges();
    logger << triangles << std::endl;
-   _top_triangle = refinement(_graph, triangles, _outer_points);
+   _top_triangle = refinement(_graph, triangles);
 
    logger << "Got top triangle" << std::endl;
 }

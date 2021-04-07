@@ -1,5 +1,4 @@
 #include <QApplication>
-#pragma comment( lib, "OpenGL32.lib" )
 #include "viewer.h"
 
 int main(int argc, char** argv) {
@@ -8,3 +7,4 @@ int main(int argc, char** argv) {
 
    run_viewer(&viewer, "Kirkpatrick triangulation refinement");
 }
+
