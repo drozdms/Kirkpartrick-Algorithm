@@ -7,7 +7,7 @@ QT += widgets
 
 OBJECTS_DIR = bin
 
-QMAKE_CXXFLAGS = -g -std=c++11 -Wall
+QMAKE_CXXFLAGS = -g -std=c++17 -Wall
 
 macx {
     QMAKE_CXXFLAGS += -stdlib=libc++  

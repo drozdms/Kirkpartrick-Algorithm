@@ -105,6 +105,10 @@ bool kirkpatrick_viewer::on_key(int key) {
 bool kirkpatrick_viewer::on_move(point_type const &pos)
 {
     _move_point = pos;
+    if (_state == viewer_state::QUERY)  {
+        _query_point = pos;
+        _query_hit = _kirkpatrick->query(pos);
+    }
     return true;
 }
 
